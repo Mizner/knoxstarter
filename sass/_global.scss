@@ -1,0 +1,34 @@
+$cOne: darkgray;
+$cTwo: red;
+$cThree: green;
+$cFour: orange;
+$cFive: pink;
+
+$light: white;
+$dark: #404040;
+
+$iconSize: 30px;
+$accentColor: #0ebeff;
+
+$priFont: 'Lato';
+$secFont: 'Lato';
+
+$layoutPadding: 0 5%;
+
+/*
+** Global Typography
+*/
+h1, h2, h3, h4, h5, h6 {
+    font-family: $priFont, Helvetica, Arial, Lucida, sans-serif;
+    font-weight: 300;
+}
+body, input, textarea, select {
+    font-family: $secFont, Helvetica, Arial, Lucida, sans-serif;
+    font-weight: 300;
+}
+
+body {
+	margin: 0;
+}
+a { text-decoration: none;}
+li {list-style-type: none;}
