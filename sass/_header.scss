@@ -1,7 +1,7 @@
 /*
 ** Header
 */
-.topMenu a, .bottomMenu a {
+#masthead a {
     color: $light;
 }
 .topMenu, .bottomMenu {
@@ -33,9 +33,7 @@
     align-items: center;
     justify-content: center;
 }
-.logo img {
-    padding: 10px 0;
-}
+
 .mainMenu {
     display: flex;
     align-items: center;

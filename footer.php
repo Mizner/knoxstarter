@@ -10,6 +10,21 @@
 */
 ?>
 </div><!-- #content -->
+
+
+<div id="footer-widgets">
+    <?php
+        $footer_sidebars = array( 'Footer One', 'Footer Two', 'Footer Three', 'Footer Four' );
+
+        foreach ( $footer_sidebars as $key => $footer_sidebar ) :
+            if ( is_active_sidebar( $footer_sidebar ) ) :
+                echo '<div class="footer-widget' . ( 3 === $key ? ' last' : '' ) . '">';
+                dynamic_sidebar( $footer_sidebar );
+                echo '</div> <!-- end .footer-widget -->';
+            endif;
+        endforeach;
+    ?>
+    </div> <!-- #footer-widgets -->
 <footer id="colophon" class="site-footer" role="contentinfo">
 	<div class="site-info">
 		<?php bloginfo('name'); ?>

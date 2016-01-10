@@ -2,6 +2,8 @@
 /**
  * Knoxweb functions and definitions.
  *
+ * You should check out https://generatewp.com
+ * 
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
  * @package Knoxweb
@@ -44,7 +46,7 @@ function knoxweb_setup() {
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
-		'primary' => esc_html__( 'Primary Menu', 'knoxweb' ),
+		'primary-menu' => esc_html__( 'Primary Menu', 'knoxweb' ),
 	) );
 
 	/*
@@ -65,10 +67,10 @@ function knoxweb_setup() {
 	 */
 	add_theme_support( 'post-formats', array(
 		'aside',
-		'image',
-		'video',
-		'quote',
-		'link',
+		//'image',
+		//'video',
+		//'quote',
+		//'link',
 	) );
 
 	// Set up the WordPress core custom background feature.
@@ -173,3 +175,37 @@ add_theme_support( 'site-logo', $args );
 		'top-menu' => esc_html__( 'Top Menu', 'knoxweb' ),
 		'bottom-menu' => esc_html__( 'Bottom Menu', 'knoxweb' ),
 	) );
+
+// Register Sidebars
+function footer_widgets() {
+
+	$args = array(
+		'id'            => 'footer-one',
+		'class'         => 'footer-widget',
+		'name'          => __( 'Footer One', 'text_domain' ),
+	);
+	register_sidebar( $args );
+
+	$args = array(
+		'id'            => 'footer-two',
+		'class'         => 'footer-widget',
+		'name'          => __( 'Footer Two', 'text_domain' ),
+	);
+	register_sidebar( $args );
+
+	$args = array(
+		'id'            => 'footer-three',
+		'class'         => 'footer-widget',
+		'name'          => __( 'Footer Three', 'text_domain' ),
+	);
+	register_sidebar( $args );
+
+	$args = array(
+		'id'            => 'footer-four',
+		'class'         => 'footer-widget',
+		'name'          => __( 'Footer Four', 'text_domain' ),
+	);
+	register_sidebar( $args );
+
+}
+add_action( 'widgets_init', 'footer_widgets' );

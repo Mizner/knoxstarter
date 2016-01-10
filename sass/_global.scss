@@ -10,25 +10,56 @@ $dark: #404040;
 $iconSize: 30px;
 $accentColor: #0ebeff;
 
-$priFont: 'Lato';
-$secFont: 'Lato';
+$priFont: 'Lato', Helvetica, Arial, Lucida, sans-serif;
+$secFont: 'Lato', Helvetica, Arial, Lucida, sans-serif;
 
 $layoutPadding: 0 5%;
 
 /*
 ** Global Typography
+Tip: go to type-scale.com it's awesome
 */
-h1, h2, h3, h4, h5, h6 {
-    font-family: $priFont, Helvetica, Arial, Lucida, sans-serif;
-    font-weight: 300;
-}
-body, input, textarea, select {
-    font-family: $secFont, Helvetica, Arial, Lucida, sans-serif;
-    font-weight: 300;
-}
+
+html {font-size: 1em;}
 
 body {
-	margin: 0;
+  font-family: $secFont;
+  background-color: $light;
+  font-family: $priFont;
+  font-weight: 400;
+  line-height: 1.45;
+  color: $dark;
+  margin: 0;
 }
+
+p {margin-bottom: 1.3em;}
+
+h1, h2, h3, h4 {
+  margin: 1.414em 0 0.5em;
+  font-weight: inherit;
+  line-height: 1.2;
+}
+
+h1 {
+  margin-top: 0;
+  font-size: 3.157em;
+}
+
+h2 {font-size: 2.369em;}
+
+h3 {font-size: 1.777em;}
+
+h4 {font-size: 1.333em;}
+
+small, .font_small {font-size: 0.75em;}
 a { text-decoration: none;}
 li {list-style-type: none;}
+
+@media only screen and (min-width: 1024px) {
+	#masthead, #colophon, #footer-widgets {
+	//padding: 0 10%;
+}
+}
+
+
+

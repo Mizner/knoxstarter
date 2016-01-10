@@ -20,7 +20,7 @@
     <body <?php body_class(); ?>>
       <div id="page" class="hfeed site">
         <a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'knoxweb' ); ?></a>
-        <header class="flexbox" style="background: url(<?php echo( get_header_image() ); ?>); background-size: cover;">
+        <header id="masthead" class="flexbox" style="background: url(<?php echo( get_header_image() ); ?>); background-size: cover;">
           <?php
           if ( has_nav_menu( 'top-menu' ) ) {
           wp_nav_menu( array(
@@ -60,7 +60,7 @@
                 <?php
                 wp_nav_menu( array(
                 'container'       => '',
-                'theme_location' => 'primary',
+                'theme_location' => 'primary-menu',
                 'menu_id' => 'primary-menu',
                 'container_class' => 'mainMenuContainer',
                 ) ); ?>
@@ -83,7 +83,7 @@
           $("body").css({"margin-top": headHeight});
             $("header").css({
             "position": "fixed",
-              "z-index": "10",
+              "z-index": "999",
               "top": "0",
               "width": "100%"
           });
