@@ -17,7 +17,8 @@
       <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
       <?php wp_head(); ?>
     </head>
-    <body <?php body_class(); ?>>
+    <body
+<?php if (get_post_meta($post->ID, 'fullwidthcheck_', true)) { body_class( 'full-width'); } else { body_class(); };?>>
       <div id="page" class="hfeed site">
         <a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'knoxweb' ); ?></a>
         <header id="masthead" class="flexbox" style="background: url(<?php echo( get_header_image() ); ?>); background-size: cover;">
@@ -37,7 +38,7 @@
           <section class="mainMenu flex">
             <div class="contactInfo">
               <?php if( get_theme_mod('phone') ): ?>
-              <a class="phone" href="#"><i class="fa fa-phone"></i><?php echo get_theme_mod( 'phone' ); ?></a>
+              <a class="phoneNumber" href="tel:<?php echo get_theme_mod( 'phone' ); ?>"><i class="fa fa-phone"></i><?php echo get_theme_mod( 'phone' ); ?></a>
               <?php endif; ?>
               <div class="socialIcons">
                 <?php if( get_theme_mod('facebook') ): ?>
@@ -96,4 +97,11 @@
 
 
 
-        <div id="content" class="site-content">
+        <div id="content" class="site-content <?php 
+// Check for Divi Builder
+$is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );if ($is_page_builder_used ) {echo 'divi';};
+// Check for Featured Image
+if ( has_post_thumbnail()) { echo ' featured-image'; }
+?>">
+
+

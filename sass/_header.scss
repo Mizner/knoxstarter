@@ -75,7 +75,7 @@
     text-shadow: 6px 5px 7px rgba(0, 0, 0, 0.36);
     box-shadow: 6px 5px 7px rgba(0, 0, 0, 0.21);
 }
-.phone {
+.phoneNumber {
     font-size: $iconSize;
     display: flex;
     align-items: center;
@@ -86,6 +86,9 @@
 }
 
 @media only screen and (min-width: 600px) {
+  .phoneNumber {
+    flex: 88 !important;
+  }
   .logo { 
       flex: 0 auto; 
       justify-content: flex-start;

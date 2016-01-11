@@ -29,6 +29,22 @@
     justify-content: center;
 
 }
+/* Search */
+.widget_search button {
+    border: none;
+    text-align: left;
+    height: 40px;
+    margin-left: -3px;
+    padding: 0 13px;
+        cursor: pointer;
+}
+.widget_search #search {
+    height: 40px;
+    padding: 0 13px;
+    margin: 0;
+    border: none;
+
+}
 
 /* Schema */
 .schemawidget-schema-wrapper {

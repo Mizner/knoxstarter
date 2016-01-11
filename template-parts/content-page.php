@@ -9,7 +9,11 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article id="post-<?php the_ID(); ?>" 
+
+<?php post_class();?>>
+
+
 	<?php if (has_post_thumbnail( $post->ID ) ) {
 		?>
 		<header class="entry-header light" style="background-image: url('<?php 
