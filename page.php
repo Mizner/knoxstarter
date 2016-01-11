@@ -33,5 +33,11 @@ get_header(); ?>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
-<?php get_sidebar(); ?>
+<?php if (get_post_meta($post->ID, 'fullwidthcheck_', true)) {
+				    } else { 
+				    	  get_sidebar();
+				     }
+?>
+
+
 <?php get_footer(); ?>

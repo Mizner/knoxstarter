@@ -10,8 +10,19 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<?php //the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+	<?php if (has_post_thumbnail( $post->ID ) ) {
+		?>
+		<header class="entry-header light" style="background-image: url('<?php 
+		echo wp_get_attachment_url( get_post_thumbnail_id($post->ID, 'thumbnail') );
+		} 
+		else {
+		?><header class="entry-header"	
+		<?php
+		}
+	?>')">
+
+
+		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">

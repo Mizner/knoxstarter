@@ -10,49 +10,23 @@
  */
 
 if ( ! function_exists( 'knoxweb_setup' ) ) :
-/**
- * Sets up theme defaults and registers support for various WordPress features.
- *
- * Note that this function is hooked into the after_setup_theme hook, which
- * runs before the init hook. The init hook is too late for some features, such
- * as indicating support for post thumbnails.
- */
+
 function knoxweb_setup() {
-	/*
-	 * Make theme available for translation.
-	 * Translations can be filed in the /languages/ directory.
-	 * If you're building a theme based on Knoxweb, use a find and replace
-	 * to change 'knoxweb' to the name of your theme in all the template files.
-	 */
+
 	load_theme_textdomain( 'knoxweb', get_template_directory() . '/languages' );
 
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
-
-	/*
-	 * Let WordPress manage the document title.
-	 * By adding theme support, we declare that this theme does not use a
-	 * hard-coded <title> tag in the document head, and expect WordPress to
-	 * provide it for us.
-	 */
 	add_theme_support( 'title-tag' );
-
-	/*
-	 * Enable support for Post Thumbnails on posts and pages.
-	 *
-	 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
-	 */
 	add_theme_support( 'post-thumbnails' );
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
 		'primary-menu' => esc_html__( 'Primary Menu', 'knoxweb' ),
+		'top-menu' => esc_html__( 'Top Menu', 'knoxweb' ),
+		'bottom-menu' => esc_html__( 'Bottom Menu', 'knoxweb' ),
 	) );
 
-	/*
-	 * Switch default core markup for search form, comment form, and comments
-	 * to output valid HTML5.
-	 */
 	add_theme_support( 'html5', array(
 		'search-form',
 		'comment-form',
@@ -72,12 +46,6 @@ function knoxweb_setup() {
 		//'quote',
 		//'link',
 	) );
-
-	// Set up the WordPress core custom background feature.
-	add_theme_support( 'custom-background', apply_filters( 'knoxweb_custom_background_args', array(
-		'default-color' => 'ffffff',
-		'default-image' => '',
-	) ) );
 }
 endif; // knoxweb_setup
 add_action( 'after_setup_theme', 'knoxweb_setup' );
@@ -158,6 +126,16 @@ require get_template_directory() . '/inc/customizer.php';
 require get_template_directory() . '/inc/jetpack.php';
 
 /**
+ * Load Meta Box Full Width Option
+ */
+require get_template_directory() . '/inc/metabox-fullwidth.php';
+
+/**
+ * Load Meta Box Full Width Option
+ */
+require get_template_directory() . '/inc/footer-widgets.php';
+
+/**
  * Add Logo Support.
  */
 	$args = array(
@@ -169,43 +147,9 @@ require get_template_directory() . '/inc/jetpack.php';
 );
 add_theme_support( 'site-logo', $args );	
 
+// Add Theme Title
+// add_theme_support( 'title-tag' );
 
-// Register Menus
-	register_nav_menus( array(
-		'top-menu' => esc_html__( 'Top Menu', 'knoxweb' ),
-		'bottom-menu' => esc_html__( 'Bottom Menu', 'knoxweb' ),
-	) );
 
-// Register Sidebars
-function footer_widgets() {
 
-	$args = array(
-		'id'            => 'footer-one',
-		'class'         => 'footer-widget',
-		'name'          => __( 'Footer One', 'text_domain' ),
-	);
-	register_sidebar( $args );
 
-	$args = array(
-		'id'            => 'footer-two',
-		'class'         => 'footer-widget',
-		'name'          => __( 'Footer Two', 'text_domain' ),
-	);
-	register_sidebar( $args );
-
-	$args = array(
-		'id'            => 'footer-three',
-		'class'         => 'footer-widget',
-		'name'          => __( 'Footer Three', 'text_domain' ),
-	);
-	register_sidebar( $args );
-
-	$args = array(
-		'id'            => 'footer-four',
-		'class'         => 'footer-widget',
-		'name'          => __( 'Footer Four', 'text_domain' ),
-	);
-	register_sidebar( $args );
-
-}
-add_action( 'widgets_init', 'footer_widgets' );

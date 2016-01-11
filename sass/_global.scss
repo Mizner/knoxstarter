@@ -7,7 +7,7 @@ $cFive: pink;
 $light: white;
 $dark: #404040;
 
-$iconSize: 30px;
+$iconSize: 20px;
 $accentColor: #0ebeff;
 
 $priFont: 'Lato', Helvetica, Arial, Lucida, sans-serif;
@@ -59,6 +59,13 @@ li {list-style-type: none;}
 	#masthead, #colophon, #footer-widgets {
 	//padding: 0 10%;
 }
+}
+
+.light {
+  color: $light;
+}
+.dark {
+  color: $dark;
 }
 
 

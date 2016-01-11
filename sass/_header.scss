@@ -38,6 +38,7 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    width: 50%;
 }
 .contactInfo nav ul {
   justify-content: center;
@@ -45,6 +46,7 @@
 .contactInfo {
     display: flex;
     flex-flow: row wrap;
+    width: 100%;
 }
 .contactInfo > * {
     flex: 1 auto;
@@ -59,8 +61,8 @@
 }
 
 .contactInfo i {
-    border-radius: 65%;
-    padding: 10px;
+    border-radius: 100%;
+    padding: 7px;
     margin: 5px 5px;
     text-align: center;
     background: $accentColor;
@@ -74,7 +76,7 @@
     box-shadow: 6px 5px 7px rgba(0, 0, 0, 0.21);
 }
 .phone {
-    font-size: 35px;
+    font-size: $iconSize;
     display: flex;
     align-items: center;
 }
@@ -84,20 +86,17 @@
 }
 
 @media only screen and (min-width: 600px) {
-
-.logo { 
-    flex: 0 auto; 
-    justify-content: flex-start;
-}
-  .contactInfo > * {
+  .logo { 
+      flex: 0 auto; 
+      justify-content: flex-start;
+  }
+    .contactInfo > * {
+      justify-content: flex-end;
+  }
+    .contactInfo nav ul {
     justify-content: flex-end;
-}
-  .contactInfo nav ul {
-  justify-content: flex-end;
-}
-  
+  }
   .socialIcons {
     justify-content: flex-end;
   }
-
 }
