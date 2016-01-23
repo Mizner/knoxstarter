@@ -11,11 +11,16 @@
   ?><!DOCTYPE html>
   <html <?php language_attributes(); ?>>
     <head>
+        <?php get_template_part( 'inc/header-styles' ); ?>
+      <link href='https://fonts.googleapis.com/css?family=<?php echo $header_font; echo '|'; echo $footer_font; ?>' rel='stylesheet' type='text/css'>
       <meta charset="<?php bloginfo( 'charset' ); ?>">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <link rel="profile" href="http://gmpg.org/xfn/11">
       <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
-      <?php wp_head(); ?>
+        <?php wp_head(); ?>
+
+        <style>html,body{font-family:'<?php echo get_theme_mod( 'gfont1' );?>';}h1, h2, h3, h4, h5, h6 {font-family: '<?php echo get_theme_mod( 'gfont2' );?>';}
+        </style>
     </head>
     <body
 <?php if (get_post_meta($post->ID, 'fullwidthcheck_', true)) { body_class( 'full-width'); } else { body_class(); };?>>
@@ -31,29 +36,16 @@
           'menu_class'      => '',
           ));} ?>
           <h1 class="logo flex">
-          <div>
-            <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php echo jetpack_the_site_logo(); ?></a>
-          </div>
+            <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo get_theme_mod( 'knoxweb_logo' ); ?>"/> </a>
           </h1>
           <section class="mainMenu flex">
             <div class="contactInfo">
               <?php if( get_theme_mod('phone') ): ?>
               <a class="phoneNumber" href="tel:<?php echo get_theme_mod( 'phone' ); ?>"><i class="fa fa-phone"></i><?php echo get_theme_mod( 'phone' ); ?></a>
               <?php endif; ?>
-              <div class="socialIcons">
-                <?php if( get_theme_mod('facebook') ): ?>
-                <a href="<?php echo get_theme_mod( 'facebook' ); ?>"><i class="fa fa-facebook"></i></a>
-                <?php else: endif; ?>
-                <?php if( get_theme_mod('twitter') ): ?>
-                <a href="<?php echo get_theme_mod( 'twitter' ); ?>"><i class="fa fa-twitter"></i></a>
-                <?php endif; ?>
-                <?php if( get_theme_mod('linkedin') ): ?>
-                <a href="<?php echo get_theme_mod( 'linkedin' ); ?>"><i class="fa fa-linkedin"></i></a>
-                <?php endif; ?>
-                <?php if( get_theme_mod('google') ): ?>
-                <a href="<?php echo get_theme_mod( 'google' ); ?>"><i class="fa fa-google"></i></a>
-                <?php endif; ?>
-              </div>
+
+              <?php get_template_part( 'inc/social-media' ); ?>
+
               <nav id="site-navigation" class="main-navigation mainMenuContainer" role="navigation">
                 <div class="contactInfo">
                 </div>
@@ -76,32 +68,13 @@
           'menu_id'         => 'bottom-menu',
           'menu_class'      => '',
           ));} ?>
-     <?php if( get_theme_mod('fixed-header') ): ?>
-      <script>
-        (function($) {
-          $(document).ready(function(){
-          var headHeight = $("header").outerHeight();
-          $("body").css({"margin-top": headHeight});
-            $("header").css({
-            "position": "fixed",
-              "z-index": "999",
-              "top": "0",
-              "width": "100%"
-          });
-          });
-        })(jQuery);
-      </script>
-    <?php else : ?>
-    <?php endif; ?>
+
+
         </header>
 
 
+          <?php get_template_part( 'inc/fixed-header' ); ?>
+<div id="content" class="site-content <?php get_template_part( 'inc/divi-builder-support' ); ?>">
 
-        <div id="content" class="site-content <?php 
-// Check for Divi Builder
-$is_page_builder_used = et_pb_is_pagebuilder_used( get_the_ID() );if ($is_page_builder_used ) {echo 'divi';};
-// Check for Featured Image
-if ( has_post_thumbnail()) { echo ' featured-image'; }
-?>">
 
 

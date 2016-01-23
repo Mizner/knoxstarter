@@ -135,25 +135,15 @@ require get_template_directory() . '/inc/metabox-fullwidth.php';
  */
 require get_template_directory() . '/inc/footer-widgets.php';
 
-/**
- * Add Logo Support.
- */
-	$args = array(
-    'header-text' => array(
-        'site-title',
-        'site-description',
-    ),
-    'size' => 'medium',
-);
-add_theme_support( 'site-logo', $args );	
-
-// Add Theme Title
-// add_theme_support( 'title-tag' );
 
 
 
+add_action('wp_head','font_fix');
 
-
-
-
+function font_fix() {
+	global $header_font;
+	$header_font = str_replace( '/\s+/' , '+', get_theme_mod( "gfont1" ) );
+	global $footer_font;
+	$footer_font = str_replace( '/\s+/' , '+', get_theme_mod( "gfont2" ) );
+}
 

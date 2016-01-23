@@ -33,6 +33,9 @@
     align-items: center;
     justify-content: center;
 }
+.logo img {
+  max-width: 100%;
+}
 
 .mainMenu {
     display: flex;

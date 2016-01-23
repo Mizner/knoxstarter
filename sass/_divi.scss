@@ -1,4 +1,6 @@
-.divi #primary {
+.divi {
+	#primary, .entry-content {
     margin: 0 !important;
     padding: 0;
+}
 }
