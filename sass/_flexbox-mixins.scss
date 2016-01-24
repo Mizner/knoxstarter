@@ -1,0 +1,20 @@
+@mixin flexbox($value) {
+  @if $value == center {
+    justify-content: center;
+    align-items: center;
+  } @else if $value == start {
+    justify-content: flex-start;
+  } @else if $value == end {
+    justify-content: flex-end;
+  } @else {
+  }
+  display: flex;
+}
+
+@mixin lineHeight {
+  line-height: $menuLineHeight;
+  padding-top: $menuLineHeight * .15;
+}
+
+
+

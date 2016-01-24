@@ -1,0 +1,88 @@
+/*
+** # Header
+*/
+/*
+*  ## Colors
+*/
+#masthead {
+  @include flexbox(center);
+  flex-flow: row wrap;
+  a {
+    color: $light;
+  }
+}
+#masthead nav {
+  flex: 1 100%;
+  ul {
+    width: 100%;
+  }
+  li {
+    width: 100%;
+  }
+
+  /* ### Header Menus */
+   a {
+
+    width: 100%;
+     @include flexbox(center);
+     @include lineHeight;
+    &:hover, &:focus {
+      color: $dark;
+      background: $light;
+    }
+  }
+}
+.topMenu, .bottomMenu {
+  background: $dark;
+  flex: 1 100%;
+}
+// ## Logo
+#logo {
+  margin: 0;
+  line-height: initial;
+  font-size: initial;
+  img {
+    width: 100%;
+  }
+}
+@media screen and (min-width: $phone) {
+  #logo {
+    flex: 2 1px;
+    @include flexbox(start);
+    img {
+      // max-width: $logoSize;
+      padding: .55em 0 0 0;
+    }
+  }
+}
+.contactInfo {
+  @include flexbox(center);
+  flex-flow: row wrap;
+  flex: 1 100%;
+}
+@media screen and (min-width: $phone) {
+  .contactInfo {
+    flex: 1;
+  }
+}
+
+
+.phoneNumber {
+  @include flexbox(center);
+  flex: 1 100%;
+}
+.socialIcons {
+  @include flexbox(center);
+  flex: 1 100%;
+  flex-flow: row wrap;
+}
+@media screen and (min-width: $phone) {
+  .phoneNumber {
+    @include flexbox(end);
+    padding-right: 2%;
+  }
+  .socialIcons {
+    @include flexbox(end);
+    padding-right: 8%;
+  }
+}

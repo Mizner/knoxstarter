@@ -1,0 +1,43 @@
+$cOne: darkgray;
+$cTwo: red;
+$cThree: green;
+$cFour: orange;
+$cFive: pink;
+$accentColor: #0ebeff;
+
+$light: white;
+$dark: #404040;
+
+$iconSize: 1em;
+$logoSize: 30em;
+
+
+$priFont: 'Lato', Helvetica, Arial, Lucida, sans-serif;
+$secFont: 'Lato', Helvetica, Arial, Lucida, sans-serif;
+
+$layoutPadding: 0 5%;
+
+
+// Screen Sizes
+$phone: 500px;
+$tablet: 1024px;
+$desktop: 1200px;
+
+
+// z-indez values
+$zHeader: 2000;
+$zOverlay: 5000;
+$zMessage: 5050;
+$zMenu: 3000;
+
+// Flexbox Helpers
+$menuLineHeight: 2em;
+
+@import "flexbox-mixins";
+
+.light {
+  color: $light;
+}
+.dark {
+  color: $dark;
+}

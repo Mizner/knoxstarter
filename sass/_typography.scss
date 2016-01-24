@@ -1,26 +1,9 @@
-$cOne: darkgray;
-$cTwo: red;
-$cThree: green;
-$cFour: orange;
-$cFive: pink;
-
-$light: white;
-$dark: #404040;
-
-$iconSize: 20px;
-$accentColor: #0ebeff;
-
-$priFont: 'Lato', Helvetica, Arial, Lucida, sans-serif;
-$secFont: 'Lato', Helvetica, Arial, Lucida, sans-serif;
-
-$layoutPadding: 0 5%;
-
 /*
 ** Global Typography
 Tip: go to type-scale.com it's awesome
 */
 
-html {font-size: 1em;}
+html {font-size: 18px;}
 
 body {
   background-color: $light;
@@ -52,18 +35,5 @@ h4 {font-size: 1.333em;}
 small, .font_small {font-size: 0.75em;}
 a { text-decoration: none;}
 li {list-style-type: none;}
-
-@media only screen and (min-width: 1024px) {
-	#masthead, #colophon, #footer-widgets {
-	//padding: 0 10%;
-}
-}
-
-.light {
-  color: $light;
-}
-.dark {
-  color: $dark;
-}
 
 

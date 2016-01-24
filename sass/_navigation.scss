@@ -1,0 +1,63 @@
+nav ul {
+  @include flexbox(center);
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+/* ## Mobile menu. */
+
+@media screen and (min-width: $phone) {
+  .menu-toggle {
+    display: none;
+  }
+}
+
+/*
+** ### Mobile Menu Toggle
+*/
+.menu-toggle {
+  width: 100%;
+  border: 0;
+  font-size: 1.2em;
+  @include lineHeight;
+  background: $accentColor;
+  color: $light;
+  i {
+    padding-right: 5px;
+    &:before { content: "\f0c9" }
+  }
+}
+.toggled .menu-toggle {
+  background: $cTwo;
+  i:before { content: "\f00d"; }
+}
+
+@media screen and (max-width: $phone) {
+  #primary-menu {
+    position: absolute;
+    clip: rect(0 0 0 0);
+    margin: 0; padding: 0; border: 0;
+  }
+  .toggled {
+    #primary-menu {
+      clip: initial;
+      height: auto;
+      padding: initial;
+      border: initial;
+      position: absolute;
+      width: 100%;
+      z-index: $zMenu;
+      background: $dark;
+      flex-direction: column;
+      li {
+        width: 100%;
+      }
+      a {
+        @include lineHeight;
+        @include flexbox(center);
+      }
+    }
+  }
+}
+
+

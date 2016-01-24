@@ -1,0 +1,17 @@
+.socialIcons, .phoneNumber {
+  i {
+    border-radius: 100%;
+    padding: 7px;
+    margin: 5px 5px;
+    text-align: center;
+    background: $accentColor;
+    color: white;
+    font-size: $iconSize !important;
+    width: $iconSize;
+    min-width: $iconSize;
+    max-width: $iconSize;
+    height: $iconSize;
+    text-shadow: 6px 5px 7px rgba(0, 0, 0, 0.36);
+    box-shadow: 6px 5px 7px rgba(0, 0, 0, 0.21);
+  }
+}

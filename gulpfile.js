@@ -1,23 +1,25 @@
 var gulp = require('gulp');
 
 var browserSync = require('browser-sync').create();
-var autoprefixer = require('gulp-autoprefixer');
-var minifyCSS = require('gulp-minify-css');
-var jade = require('gulp-jade');
-var uglify = require('gulp-uglify');
+// var autoprefixer = require('gulp-autoprefixer');
+//var cssnano = require('gulp-cssnano');
+// var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
-var concat = require('gulp-concat');
+// var concat = require('gulp-concat');
 var sass = require('gulp-sass');
+var sourcemaps = require('gulp-sourcemaps');
 
 
 
 gulp.task('sass', function () {
   gulp.src('./sass/**/*.scss')
     .pipe(sass().on('error', sass.logError))
-    .pipe(autoprefixer())
-    .pipe(minifyCSS())
-    .pipe(rename('style.css'))
-    .pipe(gulp.dest(''));
+      .pipe(sourcemaps.init({loadMaps: true}))
+      //.pipe(autoprefixer())
+      //.pipe(cssnano())
+      .pipe(sourcemaps.write(''))
+      .pipe(rename('style.css'))
+      .pipe(gulp.dest(''));
 });
 
 // gulp.task('js', function() {

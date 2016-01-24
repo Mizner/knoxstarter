@@ -1,80 +1,80 @@
 <?php
 /**
-* The header for our theme.
-*
-* This is the template that displays all of the <head> section and everything up until <div id="content">
-  *
-  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
-  *
-  * @package Knoxweb
-  */
-  ?><!DOCTYPE html>
-  <html <?php language_attributes(); ?>>
-    <head>
-        <?php get_template_part( 'inc/header-styles' ); ?>
-      <link href='https://fonts.googleapis.com/css?family=<?php echo $header_font; echo '|'; echo $footer_font; ?>' rel='stylesheet' type='text/css'>
-      <meta charset="<?php bloginfo( 'charset' ); ?>">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link rel="profile" href="http://gmpg.org/xfn/11">
-      <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
-        <?php wp_head(); ?>
+ * The header for our theme.
+ *
+ * This is the template that displays all of the <head> section and everything up until <div id="content">
+ *
+ * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
+ *
+ * @package Knoxweb
+ */
+?><!DOCTYPE html>
+<html <?php language_attributes(); ?>>
+<head>
+    <meta charset="<?php bloginfo('charset'); ?>">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="profile" href="http://gmpg.org/xfn/11">
+    <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
+    <?php wp_head(); ?>
+    <?php get_template_part('inc/inline-header-styles'); ?>
+</head>
+<body <?php // Add "full-width" class if option is checked
+if (get_post_meta($post->ID, 'fullwidthcheck_', true)) { body_class('full-width'); } else { body_class(); }; echo '>';?>
+<div id="page" class="hfeed site">
+    <a class="screen-reader-text" href="#content"><?php esc_html_e('Skip to content', 'knoxweb'); ?></a>
+    <header id="masthead" style="background: url(<?php echo(get_header_image()); ?>); background-size: cover;">
+        <?php
+        if (has_nav_menu('top-menu')) {
+            wp_nav_menu(array(
+                'container' => 'nav',
+                'container_class' => 'topMenu',
+                'menu_id' => 'top-menu',
+                'menu_class' => '',
+            ));
+        } ?>
+        <h1 id="logo">
+            <a href="<?php echo esc_url(home_url('/')); ?>" rel="home"><img src="<?php echo get_theme_mod('knoxweb_logo'); ?>"/> </a>
+        </h1>
+            <section class="contactInfo">
 
-        <style>html,body{font-family:'<?php echo get_theme_mod( 'gfont1' );?>';}h1, h2, h3, h4, h5, h6 {font-family: '<?php echo get_theme_mod( 'gfont2' );?>';}
-        </style>
-    </head>
-    <body
-<?php if (get_post_meta($post->ID, 'fullwidthcheck_', true)) { body_class( 'full-width'); } else { body_class(); };?>>
-      <div id="page" class="hfeed site">
-        <a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'knoxweb' ); ?></a>
-        <header id="masthead" class="flexbox" style="background: url(<?php echo( get_header_image() ); ?>); background-size: cover;">
-          <?php
-          if ( has_nav_menu( 'top-menu' ) ) {
-          wp_nav_menu( array(
-          'container'       => 'nav',
-          'container_class' => 'topMenu',
-          'menu_id'         => 'top-menu',
-          'menu_class'      => '',
-          ));} ?>
-          <h1 class="logo flex">
-            <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo get_theme_mod( 'knoxweb_logo' ); ?>"/> </a>
-          </h1>
-          <section class="mainMenu flex">
-            <div class="contactInfo">
-              <?php if( get_theme_mod('phone') ): ?>
-              <a class="phoneNumber" href="tel:<?php echo get_theme_mod( 'phone' ); ?>"><i class="fa fa-phone"></i><?php echo get_theme_mod( 'phone' ); ?></a>
-              <?php endif; ?>
+                <?php get_template_part('inc/social-media'); ?>
 
-              <?php get_template_part( 'inc/social-media' ); ?>
-
-              <nav id="site-navigation" class="main-navigation mainMenuContainer" role="navigation">
-                <div class="contactInfo">
-                </div>
-                <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><i class="fa"> </i> <?php esc_html_e( 'Menu', 'knoxweb' ); ?></button>
-                <?php
-                wp_nav_menu( array(
-                'container'       => '',
-                'theme_location' => 'primary-menu',
-                'menu_id' => 'primary-menu',
-                'container_class' => 'mainMenuContainer',
-                ) ); ?>
-              </nav>
-            </div>
-          </section>
-          <?php
-          if ( has_nav_menu( 'bottom-menu' ) ) {
-          wp_nav_menu( array(
-          'container'       => 'nav',
-          'container_class' => 'bottomMenu',
-          'menu_id'         => 'bottom-menu',
-          'menu_class'      => '',
-          ));} ?>
+                <nav id="site-navigation" class="main-navigation mainMenuContainer" role="navigation">
+                    <div class="contactInfo">
+                    </div>
+                    <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><i class="fa"> </i> <?php esc_html_e('Menu', 'knoxweb'); ?></button>
+                    <?php
+                    wp_nav_menu(array(
+                        'container' => '',
+                        'theme_location' => 'primary-menu',
+                        'menu_id' => 'primary-menu',
+                        'container_class' => 'mainMenuContainer',
+                    )); ?>
+                </nav>
+            </section>
+        <?php
+        if (has_nav_menu('bottom-menu')) {
+            wp_nav_menu(array(
+                'container' => 'nav',
+                'container_class' => 'bottomMenu',
+                'menu_id' => 'bottom-menu',
+                'menu_class' => '',
+            ));
+        } ?>
 
 
-        </header>
+    </header>
+    <!---->
 
-
-          <?php get_template_part( 'inc/fixed-header' ); ?>
-<div id="content" class="site-content <?php get_template_part( 'inc/divi-builder-support' ); ?>">
+    <?php get_template_part('inc/fixed-header'); ?>
+    <div id="content" class="site-content <?php
+    get_template_part('inc/divi-builder-support');
+    // Check for Featured Image
+    echo " ";
+    if (has_post_thumbnail()) {
+        echo 'featured-image';
+    }
+    ?>">
 
 
 

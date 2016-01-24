@@ -1,8 +1,22 @@
-#primary {
-    margin: 15vh 5% 15vh 25%;
-    flex: 1 auto;
+
+article {
+  @include flexbox(center);
+  flex-flow: row wrap;
+  header.entry-header {
+    @include flexbox(center);
+    @include lineHeight;
+    min-height: 8em;
+    flex: 1 100%;
+    h1 {
+      margin: 0;
+    }
+  }
+  .entry-content {
+    padding: 2em 5%;
+    max-width: 37em;
+  }
 }
-.full-width #primary {
-    margin: 10vh 30%;
-}
+
+
+
 

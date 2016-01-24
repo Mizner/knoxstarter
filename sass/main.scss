@@ -1,48 +1,22 @@
 /*!
 Theme Name: Knoxweb
-Theme URI: http://underscores.me/
+Theme URI: http://knoxweb.com/
 Author: Michael Mizner
-Author URI: http://knoxweb.com
+Author URI: http://mizner.io
 Description: Custom Theme for Knoxweb Clients
 Version: 1.0.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: knoxweb
 Tags:
-
-This theme, like WordPress, is licensed under the GPL.
-Use it to make something cool, have fun, and share what you've learned with others.
-
-Knoxweb is based on Underscores http://underscores.me/, (C) 2012-2015 Automattic, Inc.
-Underscores is distributed under the terms of the GNU GPL v2 or later.
 */
 
-/*--------------------------------------------------------------
->>> TABLE OF CONTENTS:
-----------------------------------------------------------------
-# Normalize
-# Typography
-# Elements
-# Forms
-# Navigation
-	## Links
-	## Menus
-# Accessibility
-# Alignments
-# Clearings
-# Widgets
-# Content
-    ## Posts and pages
-	## Asides
-	## Comments
-# Infinite scroll
-# Media
-	## Captions
-	## Galleries
---------------------------------------------------------------*/
-@import "global";
-@import "header";
-@import "content";
+@import "variables";
+@import "reset";
+@import "typography";
+@import "headers/default-header";
+@import "social";
+@import "navigation";
 @import "footer";
 @import "homepage";
 @import "primary";
@@ -50,76 +24,9 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
 @import "blog";
 @import "page";
 @import "post";
+// Import if Divi Builder Plugin is used
 @import "divi";
-
-/* Accessiblity Fix - Do Not Change or Remove */
-.skip-link {
-  height: 1px;
-  width: 1px;
-  position: absolute;
-  overflow: hidden;
-  top: -10px;
-}
-/* Logo Responsivness Fix */
-.site-branding img {
-    width: 100%;
-    height: auto;
-}
-/* Flex Menu Fix */
-header ul {
-    padding: 0;
-}
-
-/* Small menu. */
-
-@media screen and (min-width: 37.5em) {
-  .menu-toggle {
-    display: none;
-  }
-}
-
-/* 
-** Menu Toggle 
-*/
-.menu-toggle {
-    width: 100%;
-    border: 0;
-    font-size: 1.5em;
-    background: $accentColor;
-    color: $light;
-}
-.menu-toggle i:before {
-    content: "\f0c9"
-}
-.toggled .menu-toggle i:before {
-    content: "\f00d";
-}
-@media screen and (max-width: 37.5em) {
-#primary-menu {
-	position: absolute; 
-    clip: rect(0 0 0 0); 
-    margin: -1px; padding: 0; border: 0;
-}
-.toggled #primary-menu {
-    clip: initial; 
-    height: auto; 
-    padding: initial; 
-    border: initial;
-    position: absolute !important;
-    width: 100% !important;
-    z-index: 2;
-    background: $light;
-}
-.mainMenu ul li {
-    display: flex;
-    justify-content: center;
-}
-.mainMenu ul {
-    flex-direction: column;
-}
-
-}
-
+@import "accessibility";
 
 
 
