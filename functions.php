@@ -137,7 +137,7 @@ require get_template_directory() . '/inc/footer-widgets.php';
 
 
 
-
+/* Font Loading */
 add_action('wp_head','font_fix');
 
 function font_fix() {

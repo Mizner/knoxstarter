@@ -18,11 +18,11 @@
   }
 
   /* ### Header Menus */
-   a {
+  a {
 
     width: 100%;
-     @include flexbox(center);
-     @include lineHeight;
+    @include flexbox(center);
+    @include lineHeight;
     &:hover, &:focus {
       color: $dark;
       background: $light;
@@ -44,8 +44,8 @@
 }
 @media screen and (min-width: $phone) {
   #logo {
-    flex: 2 1px;
-    @include flexbox(start);
+    flex: 1 100%;
+    @include flexbox(center);
     img {
       // max-width: $logoSize;
       padding: .55em 0 0 0;
@@ -66,20 +66,17 @@
 
 .phoneNumber {
   @include flexbox(center);
-  flex: 1 100%;
 }
 .socialIcons {
   @include flexbox(center);
-  flex: 1 100%;
+  flex: 1;
   flex-flow: row wrap;
 }
 @media screen and (min-width: $phone) {
   .phoneNumber {
-    @include flexbox(end);
-    padding-right: 2%;
+    @include flexbox(center);
   }
   .socialIcons {
-    @include flexbox(end);
-    padding-right: 8%;
+    @include flexbox(center);
   }
 }

@@ -14,7 +14,9 @@ Tags:
 @import "variables";
 @import "reset";
 @import "typography";
-@import "headers/default-header";
+@import "admin";
+//@import "headers/default-header";
+@import "headers/centered-header";
 @import "social";
 @import "navigation";
 @import "footer";

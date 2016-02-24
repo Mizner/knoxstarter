@@ -8,6 +8,7 @@ var rename = require('gulp-rename');
 // var concat = require('gulp-concat');
 var sass = require('gulp-sass');
 var sourcemaps = require('gulp-sourcemaps');
+//var imageOptim = require('gulp-imageoptim');
 
 
 
@@ -31,6 +32,12 @@ gulp.task('sass', function () {
 //     .pipe(rename('main.js'))
 //     .pipe(gulp.dest(''))
 // });
+
+//gulp.task('images', function() {
+//    return gulp.src('')
+//        .pipe(imageOptim.optimize())
+//        .pipe(gulp.dest('build/images'));
+//});
 
 gulp.task('browser-sync', function() {
     browserSync.init(['*'], {
