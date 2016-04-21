@@ -26,6 +26,7 @@ if (get_post_meta($post->ID, 'fullwidthcheck_', true)) { body_class('full-width'
         <?php
         if (has_nav_menu('top-menu')) {
             wp_nav_menu(array(
+                'theme_location' => 'top-menu',
                 'container' => 'nav',
                 'container_class' => 'topMenu',
                 'menu_id' => 'top-menu',
@@ -45,6 +46,7 @@ if (get_post_meta($post->ID, 'fullwidthcheck_', true)) { body_class('full-width'
                     <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><i class="fa"> </i> <?php esc_html_e('Menu', 'knoxweb'); ?></button>
                     <?php
                     wp_nav_menu(array(
+                        'theme_location' => 'primary-menu',
                         'container' => '',
                         'theme_location' => 'primary-menu',
                         'menu_id' => 'primary-menu',
@@ -55,6 +57,7 @@ if (get_post_meta($post->ID, 'fullwidthcheck_', true)) { body_class('full-width'
         <?php
         if (has_nav_menu('bottom-menu')) {
             wp_nav_menu(array(
+                'theme_location' => 'bottom-menu',
                 'container' => 'nav',
                 'container_class' => 'bottomMenu',
                 'menu_id' => 'bottom-menu',
