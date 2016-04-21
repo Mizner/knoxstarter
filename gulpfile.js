@@ -11,16 +11,15 @@ var sourcemaps = require('gulp-sourcemaps');
 //var imageOptim = require('gulp-imageoptim');
 
 
-
 gulp.task('sass', function () {
-  gulp.src('./sass/**/*.scss')
-    .pipe(sass().on('error', sass.logError))
-      .pipe(sourcemaps.init({loadMaps: true}))
-      //.pipe(autoprefixer())
-      //.pipe(cssnano())
-      .pipe(sourcemaps.write(''))
-      .pipe(rename('style.css'))
-      .pipe(gulp.dest(''));
+    gulp.src('./sass/**/*.scss')
+        .pipe(sass().on('error', sass.logError))
+        .pipe(sourcemaps.init({loadMaps: true}))
+        //.pipe(autoprefixer())
+        //.pipe(cssnano())
+        .pipe(sourcemaps.write(''))
+        .pipe(rename('style.css'))
+        .pipe(gulp.dest(''));
 });
 
 // gulp.task('js', function() {
@@ -39,22 +38,22 @@ gulp.task('sass', function () {
 //        .pipe(gulp.dest('build/images'));
 //});
 
-gulp.task('browser-sync', function() {
+gulp.task('browser-sync', function () {
     browserSync.init(['*'], {
         proxy: "clone.dev",
         root: [__dirname],
         open: {
-          file: 'index.php'
+            file: 'index.php'
         }
     });
 });
 
 
 gulp.task('watch', ['browser-sync'], function () {
-  //gulp.watch('./inline/**/*.scss', ['headsass']);
-  gulp.watch('./sass/**/*.scss', ['sass']);
-  //gulp.watch('jsgulp/*', ['js']);
-  gulp.watch('*.php', reload);
+    //gulp.watch('./inline/**/*.scss', ['headsass']);
+    gulp.watch('./sass/**/*.scss', ['sass']);
+    //gulp.watch('jsgulp/*', ['js']);
+    gulp.watch('*.php', browserSync.reload);
 });
 
 gulp.task('default', ['sass'/*, 'html', 'js'*/]);
