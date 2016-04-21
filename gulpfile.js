@@ -14,10 +14,18 @@ var imageOptim = require('gulp-imageoptim');
 gulp.task('sass', function () {
     gulp.src('./sass/**/*.scss')
         .pipe(sass().on('error', sass.logError))
+        .pipe(autoprefixer())
         .pipe(sourcemaps.init({loadMaps: true}))
+        .pipe(sourcemaps.write(''))
+        .pipe(rename('style.css'))
+        .pipe(gulp.dest(''));
+});
+
+gulp.task('production-sass', function () {
+    gulp.src('./sass/**/*.scss')
+        .pipe(sass().on('error', sass.logError))
         .pipe(autoprefixer())
         .pipe(cssnano())
-        .pipe(sourcemaps.write(''))
         .pipe(rename('style.css'))
         .pipe(gulp.dest(''));
 });
@@ -26,16 +34,18 @@ gulp.task('js', function() {
   gulp.src([
     'jsgulp/*'
   ])
-    .pipe( concat('output.min.js') ) // concat pulls all our files together before minifying them
-    .pipe( uglify() )
+    .pipe(concat('output.min.js') ) // concat pulls all our files together before minifying them
+    .pipe(uglify() )
     .pipe(rename('main.js'))
     .pipe(gulp.dest(''))
 });
 
 gulp.task('images', function() {
-   return gulp.src('')
-       .pipe(imageOptim.optimize())
-       .pipe(gulp.dest('/images'));
+   return gulp.src('images/**/*')
+       .pipe(imageOptim.optimize({
+           jpegmini: true
+       }))
+       .pipe(gulp.dest(''));
 });
 
 gulp.task('browser-sync', function () {
@@ -50,12 +60,13 @@ gulp.task('browser-sync', function () {
 
 
 gulp.task('watch', ['browser-sync'], function () {
-    //gulp.watch('./inline/**/*.scss', ['headsass']);
     gulp.watch('./sass/**/*.scss', ['sass']);
     gulp.watch('jsgulp/*', ['js']);
     gulp.watch('*.php', browserSync.reload);
 });
 
-gulp.task('default', ['sass','js']);
+gulp.task('default', ['sass', 'js']);
+
+gulp.task('--production', ['production-sass', 'js', 'images']);
 
 
