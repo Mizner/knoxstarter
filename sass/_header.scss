@@ -1,0 +1,16 @@
+.menu-item-has-children {
+  position: relative;
+  &:hover ul.sub-menu {
+    display: flex;
+  }
+  ul.sub-menu {
+    display: none;
+    flex-flow: row wrap;
+    position: absolute;
+    background: $dark;
+    li.menu-item a {
+      justify-content: flex-start !important;
+      text-indent: 10px;
+    }
+  }
+}
